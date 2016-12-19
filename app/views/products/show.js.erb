@@ -1,0 +1,4 @@
+console.log("Show procuct");
+str = "<%= escape_javascript(render partial: 'products/modal', locals: { product: @product } ) %>";
+
+$("#productModal").html(str);

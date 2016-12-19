@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20161217112158) do
     t.string   "model"
     t.string   "sku"
     t.float    "price",      limit: 24
-    t.string   "desc"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.text     "desc",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

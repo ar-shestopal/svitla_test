@@ -1,0 +1,14 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Products", root_path, id: "logo", class: 'navbar-brand' %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user &&  @products_count > 0 %>
+          <li><%= link_to "You have #{@products_count} products in cart", view_cart_products_path, id: 'products-in-cart', remote: true %></li>
+        <% end %>
+        <li><%= link_to "Log in", new_user_session_path  unless current_user %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete if current_user %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

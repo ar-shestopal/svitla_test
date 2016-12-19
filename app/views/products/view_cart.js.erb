@@ -1,0 +1,3 @@
+str = "<%= escape_javascript(render partial: 'products/cart_modal', locals: { products: @products } ) %>";
+$('#cartModal').html(str);
+$('#cartModal').modal('show');

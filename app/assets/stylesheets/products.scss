@@ -1,3 +1,27 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  padding-top: 65px;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.flex {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 25%;
+  padding: 10px;
+  border: 10px solid white;
+  background-color: gainsboro;
+}
+
+.cart-count {
+  padding: 15px; 
+}

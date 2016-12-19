@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $(".box").click ->
+    id = $(@).data("product")
+    $.getScript( "/products/" + id + ".js" )
+      .done ( script, textStatus ) ->
+        console.log( textStatus )
+        $('#productModal').modal('show')
+
+      .fail( ( jqxhr, settings, exception ) ->
+        console.error("Error while loading procuct " + id))

@@ -1,0 +1,29 @@
+<div class="modal-dialog">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Products</h4>
+    </div>
+    <div class="modal-body">
+      <table class="table products-table">
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+        <% products.each do |product| %>
+          <tr id="cart-product-<%= product.id %>">
+            <td><%= product.name %></td>
+            <td class="price"><%= number_to_currency(product.price, :unit => "$") %></td>
+            <td><%= link_to 'Delete', delete_from_cart_product_path(product), method: :delete, class: 'btn btn-danger', remote: true %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+
+</div>

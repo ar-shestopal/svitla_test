@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :model
       t.string :sku
       t.float :price
-      t.string :desc
+      t.text :desc
 
       t.timestamps
     end

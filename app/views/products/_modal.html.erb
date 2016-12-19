@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title"><%= product.name %></h4>
+    </div>
+    <div class="modal-body">
+      <h5><%= product.brand %></h5>
+      <p><%= product.desc %></p>
+    </div>
+    <div class="modal-footer">
+      <%= link_to 'Add to Cart', add_to_cart_product_path(product), class: "btn btn-default", remote: true %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+
+</div>

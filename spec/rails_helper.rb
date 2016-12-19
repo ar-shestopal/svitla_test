@@ -120,13 +120,22 @@ module Support
     end
   end
 
-  module ModelsHelpers
+  module ControllerHelpers
+    def sign_in(user = double('user'))
+      if user.nil?
+        allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, {:scope => :user})
+        allow(controller).to receive(:current_user).and_return(nil)
+      else
+        allow(request.env['warden']).to receive(:authenticate!).and_return(user)
+        allow(controller).to receive(:current_user).and_return(user)
+      end
+    end
   end
 end
 
 RSpec.configure do |config|
   config.include Support::RequestHelpers, type: :request
   config.include Support::RequestHelpers, type: :feature
-  config.include Support::ModelsHelpers, type: :model
-  config.include Support::ModelsHelpers, type: :controller
+  config.include Support::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end
